@@ -1,7 +1,13 @@
 let express = require("express");
 let app = express();
 require("dotenv").config();
-// let path = require("path");
+
+// level 7
+const logger = (req, res, next) => {
+  console.log(`${req.method} ${req.path} ${req.ip}`)
+  next()
+};
+app.use(logger);
 
 // level 1
 // console.log("Hello world");
