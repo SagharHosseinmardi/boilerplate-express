@@ -1,6 +1,6 @@
 let express = require("express");
 let app = express();
-let path = require("path");
+// let path = require("path");
 
 // level 1
 // console.log("Hello world");
@@ -23,5 +23,14 @@ app.get("/", (req, res) => {
 
 // level 4
 app.use("/public", express.static(__dirname + "/public"));
+
+
+// level 5
+app.get("/json", (req, res) => {
+  res.json({ message: "Hello json" });
+});
+
+
+
 
 module.exports = app;
