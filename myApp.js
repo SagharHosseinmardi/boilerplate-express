@@ -4,7 +4,7 @@ require("dotenv").config();
 
 // level 7
 const logger = (req, res, next) => {
-  console.log(`${req.method} ${req.path} ${req.ip}`);
+  console.log(`${req.method} ${req.path} - ${req.ip}`);
   next();
 };
 app.use(logger);
