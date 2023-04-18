@@ -1,5 +1,6 @@
 let express = require("express");
 let app = express();
+require("dotenv").config();
 // let path = require("path");
 
 // level 1
@@ -24,13 +25,13 @@ app.get("/", (req, res) => {
 // level 4
 app.use("/public", express.static(__dirname + "/public"));
 
-
-// level 5
+// level 5 & 6
 app.get("/json", (req, res) => {
-  res.json({ message: "Hello json" });
+  let message = "Hello json";
+  if (process.env.MESSAGE_STYLE === "uppercase") {
+    message = message.toUpperCase();
+  }
+  res.json({ message: message });
 });
-
-
-
 
 module.exports = app;
